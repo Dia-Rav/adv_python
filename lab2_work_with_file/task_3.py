@@ -11,4 +11,5 @@ for current_dir, dirs, files in os.walk("main"): #передаем в качес
             ans.append (answer[-1])
             break
 ans = sorted(ans)
-print (ans)
+for i in range (len(ans)):
+    print (ans[i])
