@@ -6,8 +6,8 @@ def write_array(array, file_name):
 
 
 list1 = ["qwe", "rty", "uio"]
-with open("file_2task", "w") as file:
+with open("task_2_output.txt", "w") as file:
     write_array(list1, file)
-with open("file_2task", "r") as file:
+with open("task_2_output.txt", "r") as file:
     for line in file:
         print(line.strip())
