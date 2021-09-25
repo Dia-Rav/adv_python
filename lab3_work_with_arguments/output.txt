@@ -1,0 +1,5 @@
+Start time: 1632588812.537293 
+ Args: 1000 
+ - 
+ End time: 1632588812.5392344 
+ Execution time: 0.00194 seconds
