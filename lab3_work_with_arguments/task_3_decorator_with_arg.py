@@ -12,3 +12,4 @@ def div(x, y, show=False):
     return res
 
 print(div(10, 5, show=True))
+#output = 0.5
