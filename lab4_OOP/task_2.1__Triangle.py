@@ -27,8 +27,8 @@ class Rectangle(Shape):
 if __name__ == "__main__":
     Tri = Triangle(8, 6)
     Rec = Rectangle(8, 6)
-    print (Tri)
     print (Tri.area())
     print (Rec.area())
 
-
+#24.0
+#48
