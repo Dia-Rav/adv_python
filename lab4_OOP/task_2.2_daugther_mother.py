@@ -12,3 +12,8 @@ M = mother()
 D = daugther()
 print (M)
 print (D)
+
+
+#output:
+#I am mother
+#I am daugther
