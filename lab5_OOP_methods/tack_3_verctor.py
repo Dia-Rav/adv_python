@@ -45,8 +45,9 @@ class vector:
         return (self.x*self.x+self.y*self.y + self.z*self.z)**(1/2)
 
     def __gt__(self, other):
-        return abs(self)>abs(other)
-
+        return abs(self)>abs(other
+                             
+    @staticmethod
     def center_of_mass(n, vectors):
         sum = vector(0, 0, 0)
         for vect in vectors:
@@ -60,6 +61,8 @@ class vector:
             if max<vect:
                 max = vect
         return max
+                             
+    @staticmethod
     def max_triangle_perimetr(n, vectors):
         max_perimetr = 0
         max_tri = None
@@ -78,6 +81,8 @@ class vector:
                         max_perimetr = perimetr
                         max_tri = [i, j, k]
         return max_tri
+                             
+    @staticmethod
     def max_triangle_square (n, vectors):
         max_square = 0
         max_tri = None
