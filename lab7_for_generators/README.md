@@ -1,9 +1,5 @@
 Упражнение 1
 Вам дана функция на языке python:
-
-def print_map(function, iterable):
-    for i in iterable:
-        print(function(i))
 Требуется переписать данную функцию не используя цикл for. ****
 
 Упражнение 2
