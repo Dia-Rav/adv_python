@@ -1,3 +1,6 @@
+#в лабе есть файл png
+#в нем скрин ввода и вывода данной программы
+
 class BinTree:
     def __init__ (self):
         self.start = None
