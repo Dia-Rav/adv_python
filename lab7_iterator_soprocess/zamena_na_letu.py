@@ -1,10 +1,14 @@
-import zipfile
+'''
+выводит тексты исправленные тексты файлов
+можно было бы еще убрать лишние переносы и пробелы, но, вроде этого не было в задании
+чтобы было проще различать тексты, программа выводит название (номер) файла
+
+
+
+
 import os
 from pathlib import Path
 import re
-import shutil
-
-
 
 
 class TextLoader:
@@ -56,15 +60,6 @@ print (a.files_list)
 for one in a:  
     for line in one:
         print (line)
-
-
-
-
-
-
-
-
-
 
 
 
