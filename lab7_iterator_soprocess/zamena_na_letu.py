@@ -2,7 +2,9 @@
 выводит тексты исправленные тексты файлов
 можно было бы еще убрать лишние переносы и пробелы, но, вроде этого не было в задании
 чтобы было проще различать тексты, программа выводит название (номер) файла
-
+__next__ возвращает отредактированные тексты, сами файлы не меняются
+__iter__ ничего не меняет 
+'''
 
 
 
@@ -35,12 +37,7 @@ class TextLoader:
             text += '\n'
             text += line
         file.close()
-        print (text)
-        f = open(path, "w", encoding='utf-8') 
-        f.write (text)
-        f.close()
-        f = open(path, "r", encoding='utf-8')
-        return f
+        return text
 
 
 
@@ -50,16 +47,12 @@ class TextLoader:
     def __next__ (self):
         file_path = next(self.iterable)
         print (file_path)
-        file = self.norm(file_path)
-        return file
+        text = self.norm(file_path)
+        return text
 
 a = TextLoader('sample')
 os.chdir('sample') 
-
+#выведем все файлы:
 print (a.files_list)
 for one in a:  
-    for line in one:
-        print (line)
-
-
-
+    print (one)
