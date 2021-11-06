@@ -15,8 +15,8 @@ SERVICES = (
 
 async def fetch_ip(service, session):
     async with session.get(service.url) as resp:
-        text = await resp.json()
-        return text['query']
+        json = await resp.json()
+        return json[service.ip_attr]
     # получение ip
 
 
