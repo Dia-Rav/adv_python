@@ -17,7 +17,7 @@ SERVICES = (
     Service('ip-api', 'http://ip-api.com/json', 'query')
 )
 
-secret_token = '2020198962:AAGv-nDRd6FRKmEj_2ALWGPCEaWMGPngMXw'  # строка вида: 123456789:ABCDEFGHJABCDEFGHJABCDEFGHJABCDEFGHJ
+secret_token = ''  # строка вида: 123456789:ABCDEFGHJABCDEFGHJABCDEFGHJABCDEFGHJ
 
 bot = Bot(token=secret_token)
 dp = Dispatcher(bot)
