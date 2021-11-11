@@ -33,7 +33,7 @@ for N in range (1, 20):
     timer = - start_time + end_time
     print (round (timer, 4))
 '''
-Вывод:
+Вывод для разного количества потоков:
 0.011
 0.003
 0.003
