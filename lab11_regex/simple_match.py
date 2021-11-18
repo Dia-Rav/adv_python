@@ -22,14 +22,14 @@ REGEXP_2 = '^a[a-c]b$'
 # + sofia.mp4
 # - sofia.mp7
 # - sofia.mp34
-REGEXP_3 = '.\.mp[3-4]$'
+REGEXP_3 = '[a-z]+\.mp[34]$'
 
 # + taverna
 # + versus
 # + vera
 # + zveri
 # - zver
-REGEXP_4 = 'ver.'
+REGEXP_4 = '[a-z]*ver[a-z]+'
 
 # - a
 # - aa
@@ -59,7 +59,7 @@ REGEXP_6 = '(Ok|ab){3}$'
 # + Aaa aaa aaa
 # - A
 # - aaa A aaa
-REGEXP_7 = 'Aaa'
+REGEXP_7 = '.*Aaa'
 
 # + abc
 # + abc03
@@ -68,7 +68,5 @@ REGEXP_7 = 'Aaa'
 # - Aabc
 # - abc1
 # - #abc
-REGEXP_8 = '^a.b.c.[03]'
-
-
+REGEXP_8 = '^a[^1]+$'
 
