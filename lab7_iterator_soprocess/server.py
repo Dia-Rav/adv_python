@@ -1,58 +1,40 @@
-'''
-создает файлы и печатает туда сообщения пришедшие от конкретного пользователя
-возможно, реализация не та, что задумывалась у авторов задачи
-но Вы сами сказали, что не очень любите это контрукции и они тяжело даются
-'''
-import random
-import os
+class Terminate(Exception):
+    pass 
 
-def connect_user():
-    auth_users = []
-    files = {}
+class Connection(Exception):
+    pass
+
+def connect_user(username):
+    with open('message.txt','w') as f:
+        yield from write_to_file(f)
+
+def write_to_file(f_obj):
     while True:
-        i = yield 
-        i = i.split()
-        x, y = i[0], i[1]
-        if x == 'auth':
-            auth_users.append(y)
-            files[y] = open (str(y)+'.txt', 'w')
-        elif x == 'disconnect':
-            auth_users.remove(y)
-            files[y].close()
-        elif x in auth_users:
-            files[x].write(y+'\n')
-
-def user_messege(username):
-    for i in range(random.randint(10, 20)):
-        yield f"{username} message{i}"
-
-def establish_connection(auth=True):
-    id = f"{random.randint(0,100000000):010}"
-    if auth:
-        #сначала все пытаются написать что они авторизовались 
-        yield f"auth {id}"
-    #при следующих обращениях будут выводится их сообщения 
-    yield from user_messege(id)
-    if auth:
-        #в конце они отключаются 
-        yield f"disconnect {id}"
-
-def connection():
-    #создаем некоторое количество подключений
-    connections = [establish_connection(True) for i in range(10)]
-    #создаем несколько неавторизованных пользователей
-    connections.append(establish_connection(False))
-    connections.append(establish_connection(False))
-
-    while len(connections):
-        conn = random.choice(connections)
         try:
-            yield next(conn)
-        except StopIteration:
-            del connections[connections.index(conn)]
-
-
-connect = connect_user()
-next(connect)
-for i in connection():
-    connect.send(i)
+            x = yield
+            f_obj.writelines(x)
+            f_obj.writelines('\n')
+        except Terminate:
+            print('End')
+            break
+    f_obj.close()
+    
+def task_planner():
+    users = []
+    while True:
+        try:
+            username = yield
+            users.append(username)
+        except Connection:
+            yield from connect_user(users)
+            
+ 
+coroutine = task_planner()
+next(coroutine)
+coroutine.send('user_1')
+coroutine.send('USER_2')
+coroutine.throw(Connection)
+coroutine.send('message1')
+coroutine.send('message2')
+coroutine.throw(Terminate)
+coroutine.close()
