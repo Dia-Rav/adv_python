@@ -1,6 +1,7 @@
 import urllib.request
 import time
 import threading
+import os
 
 
 urls = [
@@ -10,9 +11,8 @@ urls = [
 ]
 
 
-def read_url(url):
-    with urllib.request.urlopen(url) as u:
-        return u.read()
+def read_url(urls):
+    return [os.popen('ping ' + url).read() for url in urls]
 
 start = time.time()
 threads = [threading.Thread(target=read_url(url)) for url in urls]
@@ -28,7 +28,7 @@ for url in urls:
 print('без: ', time.time() - start)
 
 '''
-c потоками:  4.377910137176514
-без:  3.661693572998047
+c потоками:  40.01757550239563
+без:  188.15056991577148
 '''
 
