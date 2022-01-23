@@ -24,7 +24,7 @@ for N in range (1, 20):
     sums = 0
     start_time = time.time()
     #запускаем N потоков
-    threads = [threading.Thread(target=check_ip(k)) for k in range(N)]
+    threads = [threading.Thread(target=check_ip, args = (k, )) for k in range(N)]
     for thread in threads:
         thread.start()
     for thread in threads:
